@@ -7,9 +7,7 @@ RUN \
   cd mozjpeg && autoreconf -fiv && ./configure --with-jpeg8 && make CC=gcc-9 && make install && \
   cd ../jpeg-archive && make CC=gcc-9
 
-FROM scratch
+FROM busybox:glibc
 WORKDIR /
-COPY --from=builder /jpeg-archive/jpeg-archive/jpeg-hash jpeg-hash
-COPY --from=builder /jpeg-archive/jpeg-archive/jpeg-compare jpeg-compare
 COPY --from=builder /jpeg-archive/jpeg-archive/jpeg-recompress jpeg-recompress
-COPY --from=builder /jpeg-archive/jpeg-archive/jpeg-archive jpeg-archive
+CMD ["/jpeg-recompress", "--version"]
