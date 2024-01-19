@@ -1,1 +1,1 @@
-# jpeg-archive-bin
+# jpeg-recompress-builder
