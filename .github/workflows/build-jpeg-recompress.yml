@@ -7,8 +7,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: set up docker buildx
@@ -23,8 +21,9 @@ jobs:
       - name: build and push
         uses: docker/build-push-action@v5
         with:
-          file: ./Dockerfile.builder
-          context: .
+          file: ./jpeg-recompress-builder.Dockerfile
+          context: "{{defaultContext}}:jpeg-recompress"
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/asc8277/jpeg-recompress-builder:2.2.0
+          tags: ghcr.io/asc8277/jpeg-recompress
+          provenance: false
