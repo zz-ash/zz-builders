@@ -1,4 +1,4 @@
-name: build docker builder image
+name: build jpeg-recompress
 on:
   workflow_dispatch
 permissions: 
