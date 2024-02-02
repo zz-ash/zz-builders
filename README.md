@@ -1,1 +1,1 @@
-# jpeg-recompress-builder
+# builder
