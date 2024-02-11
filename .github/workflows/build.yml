@@ -1,6 +1,9 @@
-name: build jpeg-recompress
+name: build
 on:
-  workflow_dispatch
+  push:
+    branches:
+      - master
+  workflow_dispatch:
 permissions: 
   packages: write
 jobs:
@@ -17,8 +20,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: docker/build-push-action@v5
         with:
-          context: "{{defaultContext}}:jpeg-recompress"
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/asc8277/jpeg-recompress
+          tags: ghcr.io/asc8277/zz-build-jpeg-recompress
           provenance: false
