@@ -9,4 +9,4 @@ RUN cd jpeg-archive && make CC=gcc-9
 FROM busybox:glibc
 WORKDIR /
 COPY --from=builder /build/jpeg-archive/jpeg-recompress jpeg-recompress
-CMD ["/jpeg-recompress", "--version"]
+ENTRYPOINT ["/jpeg-recompress"]
