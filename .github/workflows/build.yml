@@ -22,5 +22,5 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/asc8277/zz-build-jpeg-recompress
+          tags: ghcr.io/smitherander/zz-build-jpeg-recompress
           provenance: false
